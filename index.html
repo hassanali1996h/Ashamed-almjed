@@ -128,19 +128,32 @@ window.onload = function () {
   if (localStorage.getItem("dark-mode") === "on") {
     document.getElementById("body").classList.add("dark-mode");
   }
-window.addEventListener("DOMContentLoaded", function () {
+  window.onload = function () {
   const urlParams = new URLSearchParams(window.location.search);
   const action = urlParams.get("action");
 
   if (action === "camera") {
+    // تجاوز واجهة الرمز
     document.getElementById("introScreen").style.display = "none";
     document.getElementById("mainApp").style.display = "block";
 
+    // تشغيل الكاميرا بعد الدخول
     setTimeout(() => {
       openCamera();
     }, 500);
   }
-});
+
+  // الكود السابق داخل window.onload
+  if (localStorage.getItem("dark-mode") === "on") {
+    document.getElementById("body").classList.add("dark-mode");
+  }
+
+  const input = document.getElementById("inputText");
+  const imageButtons = document.getElementById("imageButtons");
+  input.addEventListener("input", () => {
+    imageButtons.style.display = input.value.trim() ? "none" : "flex";
+  });
+};
   const input = document.getElementById("inputText");
   const imageButtons = document.getElementById("imageButtons");
   input.addEventListener("input", () => {
