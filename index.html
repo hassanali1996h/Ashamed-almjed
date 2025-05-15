@@ -435,6 +435,21 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 500); // تأخير خفيف للتأكد من تحميل الصفحة
   }
 });
+ window.addEventListener("load", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get("action");
+
+  if (action === "camera") {
+    // تعبئة الرمز تلقائيًا وتشغيل الدخول
+    document.getElementById("passcodeInput").value = "2222";
+    startApp();
+
+    // ننتظر لحين عرض mainApp ثم نفتح الكاميرا
+    setTimeout(() => {
+      openCamera();
+    }, 800);
+  }
+}); 
 </script>
 
 </body>
