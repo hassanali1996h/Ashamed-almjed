@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التحليل الرقمي القرآني</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .dark-mode textarea,
+    .dark-mode input,
+    .dark-mode button {
+      background-color: #1e1e1e !important;
+      color: #ffffff !important;
+      border-color: #444 !important;
+    }
+  </style>
+</head>
+<body id="body" class="bg-[#fdfcf9] text-[#2e7d32] p-6">
+
+<div class="fixed top-4 left-4 z-50">
+  <button onclick="toggleDarkMode()" class="bg-gray-800 text-white px-3 py-1 rounded-xl text-sm shadow-md hover:bg-gray-700">🌓 وضع الليل</button>
+</div>
+
+<div id="introScreen" class="text-center py-16 max-w-xl mx-auto bg-white shadow-xl rounded-xl">
+  <div class="p-6">
+    <h2 class="text-3xl font-bold mb-2">بسم الله الوكيل</h2>
+    <h3 class="text-2xl font-semibold mb-1">تحليل رقمي</h3>
+    <p class="text-lg font-semibold mb-4 text-yellow-600">✨ إلى اللانهاية نرتقي سويًا ∞</p>
+    <p class="text-sm text-gray-700 leading-relaxed mb-4">
+      تحليل رقمي قرآني – لنكون من أصحاب الرقيم<br>
+      إهداء محبة وتقدير للأستاذ المبارك: عبدالرحمن عمرو 🌿<br>
+      تم تطوير هذه الأداة تعبيرًا عن الامتنان لما قدمه لنا من علم حق وفكر صمدي 🌿
+    </p>
+    <input type="password" id="passcodeInput" placeholder="رمز المرور"
+      class="p-3 text-center border rounded-xl w-64 text-lg focus:outline-none focus:ring-2 focus:ring-green-500 mb-4" />
+    <br>
+    <button onclick="startApp()" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-6 rounded-xl text-lg">
+      ابدأ التحليل
+    </button>
+    <div id="errorMessage" class="text-red-600 mt-3 text-sm"></div>
+  </div>
+</div>
+
+<!-- يتم إدخال باقي الكود (HTML + JS) تلقائيًا -->
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get("action");
+  if (action === "camera") {
+    setTimeout(() => {
+      openCamera();
+    }, 500);
+  }
+});
+</script>
+
+</body>
+</html>
