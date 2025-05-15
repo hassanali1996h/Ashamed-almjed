@@ -128,7 +128,19 @@ window.onload = function () {
   if (localStorage.getItem("dark-mode") === "on") {
     document.getElementById("body").classList.add("dark-mode");
   }
+window.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get("action");
 
+  if (action === "camera") {
+    document.getElementById("introScreen").style.display = "none";
+    document.getElementById("mainApp").style.display = "block";
+
+    setTimeout(() => {
+      openCamera();
+    }, 500);
+  }
+});
   const input = document.getElementById("inputText");
   const imageButtons = document.getElementById("imageButtons");
   input.addEventListener("input", () => {
